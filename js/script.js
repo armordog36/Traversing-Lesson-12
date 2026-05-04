@@ -1,10 +1,17 @@
 $(document).ready(function () {
 
     let cartCount = 0;
+
+    function updateCount() {
+        $("#count").text(cartCount);
+    }
     const deleteBtn = "<span class='del'>Remove</span>";
 
     $(".add").click(function () {
+        
+        updateCount();
         cartCount++;
+        updateCount();
 
         if (cartCount > 0) {
             $("#empty").hide();
@@ -26,6 +33,7 @@ $(document).ready(function () {
 
         parent.remove();
         cartCount--;
+        updateCount();
 
         if (cartCount === 0) {
             $("#empty").show();
